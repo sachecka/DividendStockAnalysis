@@ -60,5 +60,15 @@ for i in range(len(tickerDict['Ticker'])):
             t = dq_card[dq].find('strong').string
             tickerDict['Exchange'][i] = re.sub('\s','',t)
 
-print(tickerDict)
+# setting up output for Pycharm
+desired_width=320
+
+pd.set_option('display.width', desired_width)
+
+pd.set_option('display.max_columns',20)
+# -- end
+
+df_td = pd.DataFrame(tickerDict, columns = column_names)
+
+print(df_td)
 
