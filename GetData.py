@@ -32,31 +32,33 @@ for i in range(len(tickerDict['Ticker'])):
     # most of the info is in the dq_card div class
     dq_card = soup.find_all('div', class_="dq-card")
     for dq in range(len(dq_card)):
-        if 'Open' in dq_card[dq].text :
+        if 'Open' in dq_card[dq].text:
             tickerDict['Open'][i] = dq_card[dq].find('strong').string
-        if 'High' in dq_card[dq].text :
+        if 'High' in dq_card[dq].text:
             tickerDict['High'][i] = dq_card[dq].find('strong').string
-        if 'Low' in dq_card[dq].text :
+        if 'Low' in dq_card[dq].text:
             tickerDict['Low'][i] = dq_card[dq].find('strong').string
-        if 'Beta' in dq_card[dq].text :
+        if 'Beta' in dq_card[dq].text:
             tickerDict['Beta'][i] = dq_card[dq].find('strong').string
-        if 'All Classes' in dq_card[dq].text :
+        if 'VWAP' in dq_card[dq].text:
+            tickerDict['VWAP'][i] = dq_card[dq].find('strong').string
+        if 'All Classes' in dq_card[dq].text:
             tickerDict['Market Cap All Classes'][i] = dq_card[dq].find('strong').string
-        if 'Dividend' in dq_card[dq].text :
+        if 'Dividend' in dq_card[dq].text:
             dividend = dq_card[dq].find('strong').string
             dividend = dividend.replace("\xa0", " ")
             tickerDict['Dividend'][i] = dividend
-        if 'Div. Frequency' in dq_card[dq].text :
+        if 'Div. Frequency' in dq_card[dq].text:
             tickerDict['Div Freq'][i] = dq_card[dq].find('strong').string
-        if 'P/E Ratio' in dq_card[dq].text :
+        if 'P/E Ratio' in dq_card[dq].text:
             tickerDict['P/E Ratio'][i] = dq_card[dq].find('strong').string
-        if 'EPS' in dq_card[dq].text :
+        if 'EPS' in dq_card[dq].text:
             tickerDict['EPS'][i] = dq_card[dq].find('strong').string
-        if 'Yield' in dq_card[dq].text :
+        if 'Yield' in dq_card[dq].text:
             tickerDict['Yield'][i] = dq_card[dq].find('strong').string
-        if 'P/B Ratio' in dq_card[dq].text :
+        if 'P/B Ratio' in dq_card[dq].text:
             tickerDict['P/B Ratio'][i] = dq_card[dq].find('strong').string
-        if 'Exchange' in dq_card[dq].text :
+        if 'Exchange' in dq_card[dq].text:
             t = dq_card[dq].find('strong').string
             tickerDict['Exchange'][i] = re.sub('\s','',t)
 
